@@ -12,9 +12,10 @@ const Form = ({ userInput, onInputChange, addItem }) => {
         value={userInput}
         onChange={onInputChange}
         className="form-control"
+        placeholder="Bugun napiyoruz?"
       />
       <button onClick={addItem} className="btn btn-primary">
-        Ekle
+        +
       </button>
     </form>
   );

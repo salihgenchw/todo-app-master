@@ -3,18 +3,12 @@ import "./TodoItem.css";
 
 function Todo(props) {
   
-  const { content } = props;
-  return <div className="d-flex justify-content-between" onClick={Cizik}>
+  const { content, id } = props;
+  return <div className="d-flex justify-content-between">
     <p className=" ">{content}</p>
-  <button className="btn btn-danger" onClick={props.deleteItem}>Sil</button>
+  <button className="btn btn-danger" onClick={() => props.deleteItem(id)}>Sil</button>
   </div>;
 }
-
-function Cizik () {
-
-}
-
-
 
 
 export default Todo;
