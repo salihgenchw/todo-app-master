@@ -7,11 +7,25 @@ import TodoHeader from "./components/TodoHeader";
 class App extends Component {
   constructor(props) {
     super(props);
+    this.deleteItem = this.deleteItem.bind(this)
     this.state = {
       userInput: "",
       todos: [],
     };
   }
+
+  deleteItem(item) {
+    this.setState((prevState) =>{
+      const arr = prevState.todos.filter((i) =>{
+        return item !== i
+      })
+      return {
+        todos :arr
+      }
+    })
+  }
+
+
 
   // Eğer input alanı boş değilse todos'a ekleye
   addItem = () => {
@@ -41,6 +55,8 @@ class App extends Component {
     }
   };
 
+ 
+
   onInputChange = (e) => {
     const newVal = e.target.value;
     this.setState({
@@ -59,7 +75,7 @@ class App extends Component {
         />
         {this.state.todos.length > 0 && (
           <div className="list">
-            <TodoList todos={this.state.todos} />
+            <TodoList todos={this.state.todos} deleteItem={this.deleteItem}/>
           </div>
         )}
       </div>
